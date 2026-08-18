@@ -1,0 +1,504 @@
+/* MAIN CONTAINER */
+.register-wrapper {
+    min-height: calc(100vh - 76px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+    background-color: #19181a !important;
+    position: relative;
+    overflow: hidden;
+}
+
+.register-wrapper::before {
+    content: '';
+    position: absolute;
+    top: -100px;
+    left: -100px;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(220,53,69,0.15) 0%, transparent 70%);
+    border-radius: 50%;
+}
+
+.register-wrapper::after {
+    content: '';
+    position: absolute;
+    bottom: -150px;
+    right: -150px;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(220,53,69,0.1) 0%, transparent 70%);
+    border-radius: 50%;
+}
+
+/* REGISTER CARD (Split Layout) */
+.register-card {
+    background: rgb(0, 0, 0);
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 25px 80px rgba(0, 0, 0, 0.5);
+    max-width: 1100px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;   /* form side slightly bigger */
+    position: relative;
+    z-index: 1;
+    border: 1px solid rgba(220, 53, 69, 0.2);
+}
+
+/* LEFT SIDE - Branding */
+.register-brand-side {
+    background: linear-gradient(135deg, #000000 0%, #801300 100%);
+    padding: 60px 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Decorative food emojis */
+.register-brand-side::before {
+    content: '🍔';
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    font-size: 4rem;
+    opacity: 0.15;
+    animation: float 6s ease-in-out infinite;
+}
+
+.register-brand-side::after {
+    content: '🍕';
+    position: absolute;
+    bottom: 40px;
+    left: 30px;
+    font-size: 3.5rem;
+    opacity: 0.15;
+    animation: float 5s ease-in-out infinite reverse;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50%      { transform: translateY(-20px) rotate(-10deg); }
+}
+
+.brand-logo-register {
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin-bottom: 25px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    z-index: 1;
+}
+
+.brand-logo-register i {
+    font-size: 3rem;
+}
+
+.welcome-heading {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+    z-index: 1;
+}
+
+.welcome-text {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    opacity: 0.9;
+    margin-bottom: 30px;
+    max-width: 320px;
+    z-index: 1;
+}
+
+/* Benefits list */
+.benefits-list {
+    text-align: left;
+    max-width: 300px;
+    width: 100%;
+    z-index: 1;
+}
+
+.benefit-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 15px;
+    font-size: 0.9rem;
+}
+
+.benefit-icon-wrap {
+    width: 38px;
+    height: 38px;
+    background: rgba(255,255,255,0.2);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-size: 1.2rem;
+}
+
+/* ═══════════════════════════════════════════════════
+   RIGHT SIDE - Form
+═══════════════════════════════════════════════════ */
+.register-form-side {
+    padding: 45px 50px;
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+/* Custom scrollbar */
+.register-form-side::-webkit-scrollbar {
+    width: 6px;
+}
+
+.register-form-side::-webkit-scrollbar-track {
+    background: rgb(0, 0, 0);
+}
+
+.register-form-side::-webkit-scrollbar-thumb {
+    background: #dc3545;
+    border-radius: 3px;
+}
+
+.form-header-register {
+    margin-bottom: 25px;
+}
+
+.form-title-register {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 6px;
+}
+
+.form-subtitle-register {
+    color: #8a9bb5;
+    font-size: 0.9rem;
+}
+
+/* Alert */
+.alert-register {
+    padding: 12px 16px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.88rem;
+    animation: slideDown 0.4s ease;
+}
+
+@keyframes slideDown {
+    from { opacity: 0; transform: translateY(-10px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+.alert-register.alert-error-register {
+    background: rgba(220, 53, 69, 0.15);
+    border: 1px solid rgba(220, 53, 69, 0.4);
+    color: #ff6b7a;
+}
+
+/* Two column layout for form */
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.form-group-reg {
+    margin-bottom: 15px;
+}
+
+.form-label-reg {
+    display: block;
+    color: #adb5bd;
+    font-size: 0.8rem;
+    font-weight: 500;
+    margin-bottom: 6px;
+    letter-spacing: 0.3px;
+}
+
+.form-label-reg .required {
+    color: #dc3545;
+}
+
+.input-wrapper-reg {
+    position: relative;
+}
+
+.input-icon-reg {
+    position: absolute;
+    left: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #6c757d;
+    font-size: 1rem;
+    pointer-events: none;
+    transition: color 0.3s;
+}
+
+.form-input-reg {
+    width: 100%;
+    padding: 11px 14px 11px 42px;
+    background: #0f0f1a;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    color: #ffffff;
+    font-size: 0.9rem;
+    transition: all 0.3s;
+}
+
+.form-input-reg::placeholder {
+    color: #6c757d;
+    font-size: 0.85rem;
+}
+
+.form-input-reg:focus {
+    outline: none;
+    border-color: #dc3545;
+    background: #16213e;
+    box-shadow: 0 0 0 3px rgba(220, 53, 69, 0.15);
+}
+
+.form-input-reg:focus + .input-icon-reg,
+.input-wrapper-reg:focus-within .input-icon-reg {
+    color: #dc3545;
+}
+
+/* Textarea for address */
+textarea.form-input-reg {
+    resize: vertical;
+    min-height: 70px;
+    padding: 10px 14px 10px 42px;
+    font-family: 'Poppins', sans-serif;
+}
+
+textarea.form-input-reg + .input-icon-reg {
+    top: 20px;
+    transform: none;
+}
+
+/* Password toggle */
+.pwd-toggle-reg {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: #6c757d;
+    cursor: pointer;
+    padding: 4px 8px;
+    font-size: 1rem;
+    transition: color 0.3s;
+}
+
+.pwd-toggle-reg:hover {
+    color: #dc3545;
+}
+
+/* Password strength meter */
+.pwd-strength-container {
+    margin-top: 6px;
+    height: 3px;
+    background: rgba(255,255,255,0.08);
+    border-radius: 2px;
+    overflow: hidden;
+}
+
+.pwd-strength-bar {
+    height: 100%;
+    width: 0;
+    transition: width 0.3s, background-color 0.3s;
+    border-radius: 2px;
+}
+
+.pwd-strength-bar.weak {
+    width: 33%;
+    background: #dc3545;
+}
+
+.pwd-strength-bar.medium {
+    width: 66%;
+    background: #ffc107;
+}
+
+.pwd-strength-bar.strong {
+    width: 100%;
+    background: #198754;
+}
+
+.pwd-strength-text {
+    font-size: 0.72rem;
+    margin-top: 4px;
+    color: #6c757d;
+}
+
+.pwd-strength-text.weak   { color: #ff6b7a; }
+.pwd-strength-text.medium { color: #ffc107; }
+.pwd-strength-text.strong { color: #75d99e; }
+
+/* Field validation icon */
+.field-status {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.1rem;
+    display: none;
+}
+
+.field-status.valid {
+    color: #198754;
+    display: block;
+}
+
+.field-status.invalid {
+    color: #dc3545;
+    display: block;
+}
+
+/* Helper text */
+.field-hint {
+    font-size: 0.72rem;
+    color: #6c757d;
+    margin-top: 4px;
+}
+
+/* Terms checkbox */
+.terms-wrapper {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin: 20px 0;
+    padding: 12px;
+    background: rgba(255,255,255,0.03);
+    border-radius: 8px;
+    border: 1px solid rgba(255,255,255,0.07);
+}
+
+.terms-wrapper input[type="checkbox"] {
+    margin-top: 3px;
+    width: 16px;
+    height: 16px;
+    accent-color: #dc3545;
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+.terms-wrapper label {
+    color: #adb5bd;
+    font-size: 0.82rem;
+    line-height: 1.5;
+    cursor: pointer;
+    user-select: none;
+}
+
+.terms-wrapper a {
+    color: #dc3545;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.terms-wrapper a:hover {
+    text-decoration: underline;
+}
+
+/* Register button */
+.btn-register {
+    width: 100%;
+    padding: 13px;
+    background: linear-gradient(135deg, #dc3545 0%, #a71d2a 100%);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 15px;
+}
+
+.btn-register:hover {
+    background: linear-gradient(135deg, #c82333 0%, #7d1520 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(220, 53, 69, 0.4);
+}
+
+.btn-register:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* Login link at bottom */
+.login-prompt {
+    text-align: center;
+    color: #adb5bd;
+    font-size: 0.88rem;
+    padding-top: 15px;
+    border-top: 1px solid rgba(255,255,255,0.07);
+}
+
+.login-prompt a {
+    color: #dc3545;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.login-prompt a:hover {
+    color: #ff6b7a;
+    text-decoration: underline;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+    .register-card {
+        grid-template-columns: 1fr;
+    }
+    
+    .register-brand-side {
+        padding: 40px 30px;
+    }
+    
+    .benefits-list {
+        display: none;
+    }
+    
+    .register-form-side {
+        padding: 35px 30px;
+        max-height: none;
+    }
+}
+
+@media (max-width: 500px) {
+    .register-wrapper {
+        padding: 20px 10px;
+    }
+    
+    .form-row {
+        grid-template-columns: 1fr;   /* stack fields on mobile */
+        gap: 0;
+    }
+    
+    .register-form-side {
+        padding: 30px 20px;
+    }
+    
+    .form-title-register {
+        font-size: 1.5rem;
+    }
+}

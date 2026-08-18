@@ -1,0 +1,313 @@
+/* =================== BASE =================== */
+html, body {
+    overflow-x: hidden;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: #0a0a0a;
+    color: #fff;
+    position: relative;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(ellipse at center, rgba(30, 5, 8, 0.4) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+.container-fluid {
+    position: relative;
+    z-index: 1;
+}
+
+/* =================== WRAPPER =================== */
+.dashboard-wrapper {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 40px 30px !important;
+    animation: fadeIn 0.5s ease;
+}
+
+/* =================== HEADER =================== */
+.dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid #262626;
+}
+
+.dashboard-title {
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 1.9rem;
+    letter-spacing: 0.5px;
+    margin: 0 0 0.4rem 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.dashboard-title i {
+    color: #dc3545;
+    font-size: 2rem;
+}
+
+.dashboard-subtitle {
+    color: #8a8a95;
+    font-size: 0.95rem;
+    margin: 0;
+}
+
+.dashboard-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(220, 53, 69, 0.15);
+    color: #dc3545;
+    padding: 8px 16px;
+    border-radius: 999px;
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    border: 1px solid rgba(220, 53, 69, 0.35);
+}
+
+.dashboard-badge i {
+    font-size: 0.95rem;
+}
+
+/* =================== NAV TABS =================== */
+.dashboard-nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    background: #141414;
+    padding: 8px;
+    border-radius: 12px;
+    border: 1px solid #1f1f1f;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+
+.nav-tab {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    color: #b0b0b8;
+    background: transparent;
+    border: none;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+    text-decoration: none;
+    transition: all 0.25s ease;
+    white-space: nowrap;
+}
+
+.nav-tab i {
+    font-size: 1rem;
+}
+
+.nav-tab:hover {
+    background: rgba(220, 53, 69, 0.12);
+    color: #dc3545;
+}
+
+.nav-tab.active {
+    background: #dc3545;
+    color: #ffffff;
+    box-shadow: 0 4px 14px rgba(220, 53, 69, 0.4);
+}
+
+.nav-tab.active:hover {
+    background: #c82333;
+    color: #ffffff;
+}
+
+/* =================== STAT CARDS =================== */
+.stat-card {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    background: #141414;
+    border: 1px solid #1f1f1f;
+    border-radius: 14px;
+    padding: 24px;
+    height: 100%;
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.4);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    animation: slideUp 0.5s ease both;
+}
+
+/* Stagger card entrance */
+.col-xl-3:nth-child(1) .stat-card { animation-delay: 0.05s; }
+.col-xl-3:nth-child(2) .stat-card { animation-delay: 0.15s; }
+.col-xl-3:nth-child(3) .stat-card { animation-delay: 0.25s; }
+.col-xl-3:nth-child(4) .stat-card { animation-delay: 0.35s; }
+
+/* Decorative accent stripe on the left */
+.stat-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: #dc3545;
+    transition: width 0.3s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-6px);
+    border-color: #dc3545;
+    box-shadow: 0 14px 34px rgba(220, 53, 69, 0.25);
+}
+
+.stat-card:hover::before {
+    width: 6px;
+}
+
+/* Icon container */
+.stat-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 62px;
+    height: 62px;
+    background: rgba(220, 53, 69, 0.12);
+    color: #dc3545;
+    border-radius: 14px;
+    font-size: 1.9rem;
+    flex-shrink: 0;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(220, 53, 69, 0.25);
+}
+
+.stat-card:hover .stat-icon {
+    background: #dc3545;
+    color: #ffffff;
+    transform: rotate(-8deg) scale(1.05);
+    box-shadow: 0 8px 20px rgba(220, 53, 69, 0.4);
+}
+
+/* Info block */
+.stat-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.stat-info h6 {
+    color: #8a8a95;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.6px;
+    text-transform: uppercase;
+    margin: 0 0 4px 0;
+}
+
+.stat-info h3 {
+    color: #ffffff;
+    font-size: 1.85rem;
+    font-weight: 800;
+    letter-spacing: 0.3px;
+    margin: 0 0 6px 0;
+    line-height: 1.1;
+    word-break: break-word;
+}
+
+.stat-tag {
+    display: inline-block;
+    color: #6a6a75;
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.3px;
+}
+
+/* =================== VARIANT ACCENT COLORS (subtle) =================== */
+.stat-users::before      { background: #3b82f6; }  /* blue */
+.stat-users .stat-icon   { background: rgba(59, 130, 246, 0.12); color: #3b82f6; border-color: rgba(59, 130, 246, 0.3); }
+.stat-users:hover        { border-color: #3b82f6; box-shadow: 0 14px 34px rgba(59, 130, 246, 0.25); }
+.stat-users:hover .stat-icon { background: #3b82f6; color: #fff; box-shadow: 0 8px 20px rgba(59, 130, 246, 0.4); }
+
+.stat-orders::before     { background: #a855f7; }  /* purple */
+.stat-orders .stat-icon  { background: rgba(168, 85, 247, 0.12); color: #a855f7; border-color: rgba(168, 85, 247, 0.3); }
+.stat-orders:hover       { border-color: #a855f7; box-shadow: 0 14px 34px rgba(168, 85, 247, 0.25); }
+.stat-orders:hover .stat-icon { background: #a855f7; color: #fff; box-shadow: 0 8px 20px rgba(168, 85, 247, 0.4); }
+
+.stat-restaurants::before    { background: #dc3545; }  /* red — brand */
+.stat-restaurants .stat-icon { background: rgba(220, 53, 69, 0.12); color: #dc3545; border-color: rgba(220, 53, 69, 0.3); }
+.stat-restaurants:hover      { border-color: #dc3545; box-shadow: 0 14px 34px rgba(220, 53, 69, 0.25); }
+.stat-restaurants:hover .stat-icon { background: #dc3545; color: #fff; box-shadow: 0 8px 20px rgba(220, 53, 69, 0.4); }
+
+.stat-revenue::before    { background: #22c55e; }  /* green — money */
+.stat-revenue .stat-icon { background: rgba(34, 197, 94, 0.12); color: #22c55e; border-color: rgba(34, 197, 94, 0.3); }
+.stat-revenue:hover      { border-color: #22c55e; box-shadow: 0 14px 34px rgba(34, 197, 94, 0.25); }
+.stat-revenue:hover .stat-icon { background: #22c55e; color: #fff; box-shadow: 0 8px 20px rgba(34, 197, 94, 0.4); }
+
+/* =================== ANIMATIONS =================== */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(16px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* =================== RESPONSIVE =================== */
+@media (max-width: 768px) {
+    .dashboard-wrapper {
+        padding: 25px 15px !important;
+    }
+
+    .dashboard-title {
+        font-size: 1.5rem;
+    }
+
+    .dashboard-title i {
+        font-size: 1.6rem;
+    }
+
+    .dashboard-nav {
+        gap: 6px;
+        padding: 6px;
+    }
+
+    .nav-tab {
+        padding: 8px 14px;
+        font-size: 0.85rem;
+    }
+
+    .stat-card {
+        padding: 20px;
+        gap: 14px;
+    }
+
+    .stat-icon {
+        width: 54px;
+        height: 54px;
+        font-size: 1.6rem;
+    }
+
+    .stat-info h3 {
+        font-size: 1.5rem;
+    }
+}

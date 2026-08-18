@@ -1,0 +1,425 @@
+/* =================== BASE =================== */
+html, body {
+    overflow-x: hidden;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: #0a0a0a;
+    color: #fff;
+    position: relative;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(ellipse at center, rgba(30, 5, 8, 0.4) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+.container-fluid {
+    position: relative;
+    z-index: 1;
+}
+
+/* =================== WRAPPER =================== */
+.dashboard-wrapper {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 40px 30px !important;
+    animation: fadeIn 0.5s ease;
+}
+
+/* =================== HEADER =================== */
+.dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid #262626;
+}
+
+.dashboard-title {
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 1.9rem;
+    letter-spacing: 0.5px;
+    margin: 0 0 0.4rem 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.dashboard-title i {
+    color: #dc3545;
+    font-size: 2rem;
+}
+
+.dashboard-subtitle {
+    color: #8a8a95;
+    font-size: 0.95rem;
+    margin: 0;
+}
+
+.dashboard-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(220, 53, 69, 0.15);
+    color: #dc3545;
+    padding: 8px 16px;
+    border-radius: 999px;
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    border: 1px solid rgba(220, 53, 69, 0.35);
+}
+
+/* =================== NAV TABS =================== */
+.dashboard-nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    background: #141414;
+    padding: 8px;
+    border-radius: 12px;
+    border: 1px solid #1f1f1f;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+
+.nav-tab {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    color: #b0b0b8;
+    background: transparent;
+    border: none;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+    text-decoration: none;
+    transition: all 0.25s ease;
+    white-space: nowrap;
+}
+
+.nav-tab i {
+    font-size: 1rem;
+}
+
+.nav-tab:hover {
+    background: rgba(220, 53, 69, 0.12);
+    color: #dc3545;
+}
+
+.nav-tab.active {
+    background: #dc3545;
+    color: #ffffff;
+    box-shadow: 0 4px 14px rgba(220, 53, 69, 0.4);
+}
+
+.nav-tab.active:hover {
+    background: #c82333;
+    color: #ffffff;
+}
+
+/* =================== TABLE CARD =================== */
+.admin-table-card {
+    background: #141414;
+    border: 1px solid #1f1f1f;
+    border-radius: 14px;
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.4);
+    overflow: hidden;
+    animation: slideUp 0.5s ease 0.1s both;
+}
+
+.table-responsive {
+    border-radius: 14px;
+    overflow-x: auto;
+}
+
+/* =================== TABLE =================== */
+.admin-table {
+    width: 100%;
+    margin: 0 !important;
+    color: #ffffff;
+    background: transparent !important;
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
+.admin-table thead th {
+    background: #1a1a1a !important;
+    color: #8a8a95 !important;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.6px;
+    text-transform: uppercase;
+    padding: 16px 20px;
+    border: none !important;
+    border-bottom: 1px solid #262626 !important;
+    white-space: nowrap;
+}
+
+.admin-table tbody tr {
+    background: transparent !important;
+    transition: all 0.2s ease;
+    border: none !important;
+}
+
+.admin-table tbody tr:hover {
+    background: rgba(220, 53, 69, 0.05) !important;
+}
+
+.admin-table tbody td {
+    background: transparent !important;
+    color: #ffffff !important;
+    padding: 14px 20px !important;
+    vertical-align: middle;
+    border: none !important;
+    border-bottom: 1px solid #1f1f1f !important;
+    font-size: 0.9rem;
+    white-space: nowrap;
+}
+
+.admin-table tbody tr:last-child td {
+    border-bottom: none !important;
+}
+
+.admin-table > :not(caption) > * > * {
+    background-color: transparent !important;
+    box-shadow: none !important;
+}
+
+/* =================== CELL STYLES =================== */
+.cell-id {
+    color: #ffffff;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+}
+
+/* =================== RESTAURANT CELL (AVATAR + NAME) =================== */
+.rest-cell {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.rest-avatar {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: rgba(220, 53, 69, 0.15);
+    color: #dc3545;
+    border: 1px solid rgba(220, 53, 69, 0.35);
+    border-radius: 10px;
+    font-size: 1.1rem;
+    flex-shrink: 0;
+    transition: all 0.3s ease;
+}
+
+.admin-table tbody tr:hover .rest-avatar {
+    background: #dc3545;
+    color: #ffffff;
+    transform: rotate(-8deg) scale(1.05);
+    box-shadow: 0 6px 14px rgba(220, 53, 69, 0.4);
+}
+
+.rest-name {
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 0.95rem;
+    letter-spacing: 0.2px;
+}
+
+/* =================== CUISINE BADGE =================== */
+.cuisine-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(234, 179, 8, 0.12);
+    color: #eab308;
+    padding: 5px 12px;
+    border-radius: 8px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+    border: 1px solid rgba(234, 179, 8, 0.3);
+    white-space: nowrap;
+}
+
+.cuisine-badge i {
+    font-size: 0.9rem;
+}
+
+/* =================== RATING BADGE =================== */
+.rating-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 5px 12px;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+    border: 1px solid transparent;
+    min-width: 60px;
+    justify-content: center;
+}
+
+.rating-badge i {
+    font-size: 0.85rem;
+}
+
+.rating-excellent {
+    background: rgba(34, 197, 94, 0.15);
+    color: #22c55e;
+    border-color: rgba(34, 197, 94, 0.35);
+}
+
+.rating-good {
+    background: rgba(59, 130, 246, 0.15);
+    color: #3b82f6;
+    border-color: rgba(59, 130, 246, 0.35);
+}
+
+.rating-average {
+    background: rgba(234, 179, 8, 0.15);
+    color: #eab308;
+    border-color: rgba(234, 179, 8, 0.35);
+}
+
+.rating-poor {
+    background: rgba(220, 53, 69, 0.15);
+    color: #dc3545;
+    border-color: rgba(220, 53, 69, 0.35);
+}
+
+/* =================== DELIVERY TIME CELL =================== */
+.cell-time {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: #b0b0b8;
+    font-size: 0.88rem;
+    font-weight: 500;
+}
+
+.cell-time i {
+    color: #3b82f6;
+    font-size: 0.9rem;
+}
+
+/* =================== STATUS BADGE =================== */
+.status-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 5px 14px;
+    border-radius: 999px;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    border: 1px solid transparent;
+    white-space: nowrap;
+}
+
+.status-badge i {
+    font-size: 0.85rem;
+}
+
+.status-active {
+    background: rgba(34, 197, 94, 0.15);
+    color: #22c55e;
+    border-color: rgba(34, 197, 94, 0.35);
+}
+
+.status-inactive {
+    background: rgba(139, 139, 149, 0.15);
+    color: #8a8a95;
+    border-color: rgba(139, 139, 149, 0.35);
+}
+
+/* =================== EMPTY STATE =================== */
+.empty-row {
+    text-align: center !important;
+    padding: 60px 20px !important;
+}
+
+.empty-row i {
+    font-size: 3rem;
+    color: #3a3a3f;
+    display: block;
+    margin-bottom: 0.8rem;
+}
+
+.empty-row p {
+    color: #8a8a95;
+    font-size: 1rem;
+    margin: 0;
+    font-weight: 500;
+}
+
+/* =================== ANIMATIONS =================== */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(16px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* =================== RESPONSIVE =================== */
+@media (max-width: 992px) {
+    .dashboard-wrapper {
+        padding: 25px 15px !important;
+    }
+
+    .dashboard-title {
+        font-size: 1.5rem;
+    }
+
+    .dashboard-title i {
+        font-size: 1.6rem;
+    }
+
+    .admin-table thead th,
+    .admin-table tbody td {
+        padding: 12px 14px !important;
+    }
+
+    .rest-avatar {
+        width: 34px;
+        height: 34px;
+        font-size: 0.95rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .dashboard-nav {
+        gap: 6px;
+        padding: 6px;
+    }
+
+    .nav-tab {
+        padding: 8px 14px;
+        font-size: 0.85rem;
+    }
+}

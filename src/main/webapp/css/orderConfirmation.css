@@ -1,0 +1,242 @@
+/* =================== BASE =================== */
+html, body {
+    overflow-x: hidden;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: #0a0a0a;
+    color: #fff;
+    position: relative;
+}
+
+/* Subtle radial vignette (like login page) */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(ellipse at center, rgba(30, 5, 8, 0.4) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+.container,
+header,
+footer,
+main {
+    position: relative;
+    z-index: 1;
+}
+
+/* =================== CONFIRMATION WRAPPER =================== */
+.confirmation-wrapper {
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 60px 20px 40px 20px;
+    animation: fadeIn 0.6s ease;
+}
+
+/* =================== SUCCESS ICON =================== */
+.success-icon {
+    display: inline-flex;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto 1.5rem auto;
+    font-size: 5rem;
+    color: #22c55e;
+    animation: popIn 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+    filter: drop-shadow(0 0 25px rgba(34, 197, 94, 0.55));
+}
+
+/* =================== HEADINGS =================== */
+#success-msg {
+    margin: 0 0 0.8rem 0;
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 2rem;
+    letter-spacing: 0.5px;
+    animation: slideUp 0.6s ease 0.15s both;
+}
+
+#order-no {
+    color: #dc3545;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    margin-bottom: 0.6rem;
+    animation: slideUp 0.6s ease 0.25s both;
+}
+
+.text-center > p {
+    color: #8a8a95;
+    font-size: 0.95rem;
+    margin-bottom: 2rem;
+    animation: slideUp 0.6s ease 0.35s both;
+}
+
+/* =================== ORDER CARD =================== */
+.order-card {
+    background: #141414;
+    backdrop-filter: none;
+    padding: 28px;
+    border: 1px solid #1f1f1f;
+    border-radius: 14px;
+    margin: 1.5rem 0;
+    color: #ffffff;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+    animation: fadeIn 0.6s ease 0.4s both;
+}
+
+.order-card p {
+    margin: 0.75rem 0;
+    color: #d0d0d5;
+    font-size: 0.95rem;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.order-card i {
+    margin-right: 4px;
+    color: #dc3545;
+    font-size: 1.05rem;
+}
+
+/* =================== ORDER TABLE =================== */
+.order-card .table {
+    background: transparent !important;
+    color: #ffffff !important;
+    margin-top: 1.2rem;
+    margin-bottom: 0.5rem;
+    border-collapse: separate;
+    border-spacing: 0 6px;
+}
+
+.order-card .table tr {
+    background: #1a1a1a !important;
+    transition: all 0.2s ease;
+}
+
+.order-card .table tr:hover {
+    background: #222 !important;
+    transform: translateX(3px);
+}
+
+.order-card .table th,
+.order-card .table td {
+    background: transparent !important;
+    color: #ffffff !important;
+    padding: 12px 16px;
+    border: none !important;
+    font-weight: 500;
+    vertical-align: middle;
+}
+
+.order-card .table th {
+    font-size: 0.95rem;
+    border-radius: 8px 0 0 8px !important;
+}
+
+.order-card .table td {
+    text-align: right;
+    color: #ff6677 !important;
+    font-weight: 600;
+    border-radius: 0 8px 8px 0 !important;
+}
+
+/* =================== ORDER TOTAL =================== */
+.order-total {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: rgb(0, 255, 64) !important;
+    border-top: 1px solid #262626;
+    padding-top: 1.2rem;
+    margin-top: 1.2rem;
+    text-align: right;
+    letter-spacing: 0.5px;
+}
+
+/* =================== HOME BUTTON =================== */
+.confirmation-wrapper .btn-danger {
+    display: block;
+    width: 100%;
+    background: #dc3545;
+    border: none;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 1rem;
+    letter-spacing: 0.5px;
+    padding: 12px;
+    margin-top: 1rem;
+    color: #ffffff;
+    text-decoration: none;
+    transition: all 0.25s ease;
+    box-shadow: 0 4px 16px rgba(220, 53, 69, 0.3);
+    animation: fadeIn 0.6s ease 0.5s both;
+}
+
+.confirmation-wrapper .btn-danger:hover {
+    background: #c82333;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(220, 53, 69, 0.45);
+    color: #ffffff;
+}
+
+.confirmation-wrapper .btn-danger:active {
+    transform: translateY(0);
+}
+
+/* =================== ANIMATIONS =================== */
+@keyframes popIn {
+    0%   { transform: scale(0) rotate(-180deg); opacity: 0; }
+    60%  { transform: scale(1.2) rotate(10deg); opacity: 1; }
+    100% { transform: scale(1) rotate(0deg); opacity: 1; }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(16px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* =================== RESPONSIVE =================== */
+@media (max-width: 768px) {
+    .confirmation-wrapper {
+        padding: 40px 15px 30px 15px;
+    }
+
+    #success-msg {
+        font-size: 1.5rem;
+    }
+
+    .success-icon {
+        font-size: 4rem;
+        width: 80px;
+        height: 80px;
+    }
+
+    .order-card {
+        padding: 20px;
+    }
+
+    .order-total {
+        font-size: 1.2rem;
+    }
+}
+
+/* =================== RECEIPT ICON (for orderDetails.jsp) =================== */
+.receipt-icon {
+    color: #dc3545 !important;
+    filter: drop-shadow(0 0 25px rgba(220, 53, 69, 0.55)) !important;
+}
